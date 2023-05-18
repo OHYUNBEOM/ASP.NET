@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<style>
+    #box {
+        width: 100px; height: 100px;
+        background-color: darkgray;
+    }
+
+    #box.hover {
+        background-color: darkcyan;
+        border-radius: 50px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#box').hover(function () {
+            // 스타일을 변경합니다.
+            $('#box').addClass('hover');
+        }, function () {
+            // 스타일을 변경합니다.
+            $('#box').removeClass('hover');
+        });
+    });
+</script>
+<body>
+    <div id="box"></div>
+</body>
+</html>

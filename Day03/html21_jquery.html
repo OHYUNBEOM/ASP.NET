@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+    $(document).ready(function () {
+        // 스타일을 적용합니다.
+        $('.box').css({
+                float: 'left',
+                margin: 10,
+                width: 100,
+                height: 100,
+                backgroundColor: 'darkgray'
+            }).on('mouseenter',function(){
+                $(this).css({
+                    'background-color':'lightblue'
+                });
+            }).on('mouseleave',function(){
+                $(this).css('background','darkgray')
+            })
+    });
+</script>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+</html>
