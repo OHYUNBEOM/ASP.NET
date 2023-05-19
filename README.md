@@ -19,3 +19,5 @@
   - Bootstrap
     - Bootstrap Album Page 클로닝
 ![Bootstrap Album Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/bootstrapAlbum.gif?raw=true))
+    - Bootstrap Pinterest Page 클로닝
+![Bootstrap Album Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/interestSite.gif?raw=true))
