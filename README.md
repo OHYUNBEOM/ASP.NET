@@ -17,7 +17,11 @@
 ## 3일차
 - 웹 기본
   - Bootstrap
-    - Bootstrap Album Page 클로닝
-![Bootstrap Album Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/bootstrapAlbum.gif?raw=true))
-    - Bootstrap Pinterest Page 클로닝
-![Bootstrap Album Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/interestSite.gif?raw=true))
+  
+- Bootstrap Album Page 클로닝
+
+![Bootstrap Album Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/bootstrapAlbum.gif?raw=true)
+
+- Bootstrap Pinterest Page 클로닝
+
+![Bootstrap Pinterest Page](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/interestSite.gif?raw=true)
