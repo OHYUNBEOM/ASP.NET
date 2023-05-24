@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -39,9 +38,7 @@
                     '</div>').appendTo('#paperArea');
                 }
             }
-
             getPapers(); // 위의 동적으로 paper을 만드는 함수를 실행
-
             // 여기에 로직을 적으면 됨
             $('#main-section').imagesLoaded(function () {
                 $('#main-section').masonry({
@@ -50,9 +47,7 @@
                     isAnimated: true
                 });
             });
-
             $('#btnLight').addClass('active'); // 기본 라이트테마로 시작
-
             // 테마 변경
             $('#btnLight').click(function(){
                 $('html').attr('data-bs-theme', 'light');
@@ -66,7 +61,6 @@
                 $('#btnLight').removeClass('active');
                 $('#iconTheme').attr('class','bi bi-moon-stars-fill')
             });
-
             // 라이트 박스
             function showLightBox(obj){
                 var img_src=obj.getElementsByTagName('img')[0].src; // 내가 선택한 paper의 이미지가 선택되어서 라이트 박스에 나옴
@@ -76,12 +70,10 @@
                 $('#darken-background').css('top',$(window).scrollTop());
                 $('body').css('overflow','hidden');
             }
-
             function hideLightBox(){
                 $('#darken-background').hide();
                 $('body').css('overflow','');
             }
-
             $('.paper').click(function(){
                 showLightBox(this);
             });
@@ -94,7 +86,6 @@
                 event.stopPropagation();    // darken-background에서 일어나는 이벤트는 lightbox에서 발생하지 말것               
             })
         });
-
         // min, max 사이의 값으로 랜덤하게 수를 만드는 함수
         function random(min, max) {
            return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -105,7 +96,6 @@
     <!-- 커스터 마이징 js-->
     <script src="./js/main.js"></script>
 </head>
-
 <body>
     <!-- 테마 영역 -->
     <!--  오른쪽 아래 바닥 테마 변경 아이콘 영역 -->
@@ -129,7 +119,6 @@
             </li>
         </ul>
     </div>
-
     <!-- Head 영역 -->
     <header class="p-3 mb-3 border-bottom fixed-top bg-white" >
         <div class="container">
@@ -137,18 +126,15 @@
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
                     <img src="./images/pinterest.png" width="24">
                 </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
                     <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
                     <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
                     <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
                 </ul>
-
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
                 </form>
-
                 <div class="dropdown text-end">
                     <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -167,7 +153,6 @@
             </div>
         </div>
     </header>
-
     <!-- Main영역 -->
     <div id="main-section">
         <div class="container" id="paperArea">
@@ -175,7 +160,6 @@
             <!-- 이제 동적으로 처리합니다. -->
         </div>
     </div>
-
     <!-- Light box --> <!-- 평소에는 안나오는데 클릭하면 나옴 -->
     <div id="darken-background">
         <div id="lightbox">
@@ -191,12 +175,10 @@
             <img id="random-image" src="">
         </div>
     </div>
-
     <!-- Bootstrap JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 </body>
 </body>
-
 </html>
