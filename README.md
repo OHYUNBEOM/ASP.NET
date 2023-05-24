@@ -40,3 +40,5 @@
 ## 6일차
 - ASP.NET MVC
   - Board(게시판) 정리
+
+![Board](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/0524_Board.gif?raw=true)
