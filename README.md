@@ -47,3 +47,7 @@
 - ASP.NET MVC
   - 권한 관리
   - Bootstrap 테마 적용
+
+## 8일차
+- ASP.NET Core MVC
+  - 부트스트랩 테마(SEO Dream) 적용
