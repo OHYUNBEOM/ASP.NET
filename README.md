@@ -51,3 +51,5 @@
 ## 8일차
 - ASP.NET Core MVC
   - 부트스트랩 테마(SEO Dream) 적용
+
+![Board](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/0526_Board.gif?raw=true)
