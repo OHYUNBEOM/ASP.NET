@@ -53,3 +53,8 @@
   - 부트스트랩 테마(SEO Dream) 적용
 
 ![Board](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/0526_Board.gif?raw=true)
+
+## 9일차
+- ASP.NET Core MVC
+  - SEO Dream 테마 완료
+    - 포트폴리오 동적관리(이미지 업로드)
