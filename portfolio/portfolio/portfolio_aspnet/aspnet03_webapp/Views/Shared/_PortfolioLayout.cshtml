@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- HTML은 대소문자구분이 없지만 대문자사용은 자제할 것! -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- meta name="description" content="">
+    <meta name="author" content="" -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>@ViewData["Title"] - Portfolio</title>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="~/themes/startbootstrap-freelancer-gh-pages/css/styles.css" />
+    <!-- Bootstrap 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/themes/seo_dream/assets/css/animated.css">
+    <link rel="stylesheet" href="~/themes/seo_dream/assets/css/owl.css">
+    <!-- WYSWYG 에디터 링크 -->
+    <link rel="stylesheet" href="~/lib/trumbowyg/ui/trumbowyg.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Toast 메시지창 js 라이브러리용 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/themes/startbootstrap-freelancer-gh-pages/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg bg-primary text-uppercase fixed-top" id="mainNav">
+                        <div class="container">
+                            <a class="navbar-brand" asp-controller="Home" asp-action="Index">OYB's Portfolio</a>
+                            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                Menu
+                                <i class="fas fa-bars"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item mx-0 mx-lg-1"><a asp-controller="Home" asp-action="Index" class="nav-link py-3 px-0 px-lg-3 rounded">Home</a></li>
+                                    @if (ViewData["NoScroll"] != "true")
+                                    {
+                                        <li class="nav-item mx-0 mx-lg-1"><a href="#about" class="nav-link py-3 px-0 px-lg-3 rounded">ABOUT</a></li>
+                                        <li class="nav-item mx-0 mx-lg-1"><a href="#portfolio" class="nav-link py-3 px-0 px-lg-3 rounded">PORTFOLIO</a></li>
+                                        <li class="nav-item mx-0 mx-lg-1"><a href="#contact" class="nav-link py-3 px-0 px-lg-3 rounded">CONTACT</a></li>
+                                    }
+                                    @if (signInManager.IsSignedIn(User))
+                                    {
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <li class="nav-item mx-0 mx-lg-1">
+                                                <a asp-controller="Portfolio" asp-action="Index" class="nav-link py-3 px-0 px-lg-3 rounded">Portfolio Management</a>
+                                            </li>
+                                        }
+                                        <li class="nav-item mx-0 mx-lg-1">
+                                            <form asp-controller="Account" asp-action="Logout" method="post">
+                                                <button type="submit" class="btn btn-link nav-link py-3 px-0 px-lg-3 rounded" style="color:white">Logout</button>
+                                            </form>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item mx-0 mx-lg-1">
+                                            <a asp-controller="Account" asp-action="Register" class="nav-link py-3 px-0 px-lg-3 rounded">Register</a>
+                                        </li>
+                                        <li class="nav-item mx-0 mx-lg-1">
+                                            <a asp-controller="Account" asp-action="Login" class="nav-link py-3 px-0 px-lg-3 rounded">Login</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+    <div>
+        <!-- 필수! -->
+        @RenderBody()
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">
+                        Republic of Korea, Busan
+                        <br />
+                        23, Daecheong-ro, Jung-gu
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">GITHUB URL</h4>
+                    <p class="lead mb-0">
+                        <a href="https://github.com/OHYUNBEOM">GITHUB</a>
+                    </p>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">VELOG URL</h4>
+                    <p class="lead mb-0">
+                        <a href="https://velog.io/@@dbsqja353">Velog</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <!-- jQuery & Bootstrap CND LINKs -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- SEO Dream 테마를 위해서 개발자 만든 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="~/themes/startbootstrap-freelancer-gh-pages/js/scripts.js"></script>
+    <script src="~/themes/seo_dream/assets/js/owl-carousel.js"></script>
+    <script src="~/themes/seo_dream/assets/js/animation.js"></script>
+    <!-- WYSWYG 에디터용 js & 한국어언어팩 js -->
+    <script src="~/lib/trumbowyg/trumbowyg.min.js"></script>
+    <script src="~/lib/trumbowyg/langs/ko.min.js"></script>
+    <!-- trumbowyg를 site.js에서 부르기때문에 상위에 trumbowyg에 관련된 js가 먼저 나와야.. -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

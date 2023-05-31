@@ -1,0 +1,242 @@
+﻿@model IEnumerable<aspnet02_boardapp.Models.PortfolioModel>;
+@{
+    ViewData["Title"] = "홈";
+    Layout = "~/Views/Shared/_PortfolioLayout.cshtml";
+}
+
+<partial name="_Notification"/>
+
+
+@*홈*@
+<header class="masthead bg-secondary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+        <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="~/image/mimoticon.png" alt="..." />
+        <!-- Masthead Heading-->
+        <h3>성장과 즐거움을 쫓는 개발자</h3>
+        <br />
+        <h1>오윤범</h1>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Masthead Subheading-->
+        <p class="masthead-subheading font-weight-light mb-0">Tech Stacks : PYTHON / .NET / MYSQL</p><br />
+        <p class="masthead-subheading font-weight-light mb-0">Certificates : 정보처리기사 / 컴퓨터활용능력 1급 / TOEIC SPEAKING AL(LV7) / TOEIC 880</p>
+    </div>
+</header>
+
+<!-- About Section-->
+<section class="page-section bg-secondary text-white mb-0" id="about">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">About Me</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <div class="col-lg-4 ms-auto"><p class="lead">Education<br />2017.02 센텀고등학교 졸업<br />2023.02 인제대학교 컴퓨터공학부 수석 졸업</p></div>
+            <div class="col-lg-4 me-auto"><p class="lead">Experience<br />2023.01.30 ~ 2023.09.01 Window 플랫폼 기반 IoT 시스템 개발자 양성 과정 이수 중</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-secondary text-white mb-0 " id="portfolio">
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Portfolio</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div> <!-- Add an empty column to create space on the left -->
+            <div class="col-lg-4">
+                <div class="section-heading text-center">
+                    <h4 style="white-space:nowrap;">클릭 시 해당 Project Github URL로 이동합니다.</h4>
+                </div>
+            </div>
+            <div class="col-lg-4"></div> <!-- Add an empty column to create space on the right -->
+        </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="loop owl-carousel">
+                    @if (Model.Count() > 0)
+                    {
+                        var loop = 1;
+                        foreach (var item in Model)
+                        {
+                            if (loop % 2 == 1)
+                            {
+                                @Html.Raw("<div class='item'>")
+                                ;
+                            }
+                            //동적으로 포트폴리오 이미지 객체를 만들어주는 파트
+                            @Html.Raw("<div class='portfolio-item'>" +
+                                        "  <div class='thumb'>" +
+                                        $"    <img src='/uploads/{item.FileName}' width='445' height='420'>" +
+                                        "    <div class='hover-content'>" +
+                                        "      <div class='inner-content'>" +
+                                        $"        <a href='{item.Url}' target='_blank'><h4>{item.Title}</h4></a>" +
+                                        $"        <span>{item.Description}</span>" +
+                                        "      </div>"+
+                                        "    </div>" +
+                                        "  </div>" +
+                                        "</div>")
+                                                ;
+
+                            if (loop % 2 == 0)
+                            {
+                                @Html.Raw("</div>")
+                                ;
+                            }
+                            loop++;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  @*포트폴리오*@
+  @*<div id="portfolio" class="our-portfolio section bg-secondary">
+    <div class="container">
+    <!-- About Section Heading-->
+    <h2 class="page-section-heading text-center text-uppercase text-white">Portfolio</h2>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <h6>Portfolio</h6>
+            <h2>Discover Our Recent <em>Projects</em> And <span>Showcases</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="loop owl-carousel">
+            @if (Model.Count() > 0)
+            {
+                var loop = 1;
+                foreach (var item in Model)
+                {
+                    if(loop%2==1)
+                    {
+                        @Html.Raw("<div class='item'>");
+                    }
+                    //동적으로 포트폴리오 이미지 객체를 만들어주는 파트
+                    @Html.Raw("<div class='portfolio-item'>" +
+                                "  <div class='thumb'>" +
+                                $"    <img src='/uploads/{item.FileName}' width='445' height='305'>" +
+                                "    <div class='hover-content'>" +
+                                "      <div class='inner-content'>" +
+                                $"        <a href='{item.Url}' target='_blank'><h4>{item.Title}</h4></a>" +
+                                $"        <span>{item.Description}</span>" +
+                                "      </div>"+
+                                "    </div>" +
+                                "  </div>" +
+                                "</div>")
+
+                    if(loop%2==0)
+                    {
+                        @Html.Raw("</div>")
+                        ;
+                    }
+                    loop++;
+                }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>*@
+  @*연락*@
+<section class="page-section bg-secondary text-white" id="contact">
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase  mb-0">Contact Me</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Phone number</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
