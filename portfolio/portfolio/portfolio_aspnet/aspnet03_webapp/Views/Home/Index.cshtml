@@ -83,17 +83,17 @@
                             }
                             //동적으로 포트폴리오 이미지 객체를 만들어주는 파트
                             @Html.Raw("<div class='portfolio-item'>" +
-                                        "  <div class='thumb'>" +
-                                        $"    <img src='/uploads/{item.FileName}' width='445' height='420'>" +
-                                        "    <div class='hover-content'>" +
-                                        "      <div class='inner-content'>" +
-                                        $"        <a href='{item.Url}' target='_blank'><h4>{item.Title}</h4></a>" +
-                                        $"        <span>{item.Description}</span>" +
-                                        "      </div>"+
-                                        "    </div>" +
-                                        "  </div>" +
-                                        "</div>")
-                                                ;
+                                "  <div class='thumb'>" +
+                                $"    <img src='/uploads/{item.FileName}' width='445' height='420'>" +
+                                "    <div class='hover-content'>" +
+                                "      <div class='inner-content'>" +
+                                $"        <a href='{item.Url}' target='_blank'><h4>{item.Title}</h4></a>" +
+                                $"        <span>{item.Description}</span>" +
+                                "      </div>" +
+                                "    </div>" +
+                                "  </div>" +
+                                "</div>");
+                                                
 
                             if (loop % 2 == 0)
                             {
