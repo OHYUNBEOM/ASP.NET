@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using TodoAPIServer.Models;
 
-namespace TodoAPIServer
+namespace TodoApiServer
 {
     public class Program
     {
@@ -10,6 +11,8 @@ namespace TodoAPIServer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddCors();  // 서버에 CORS 설정
+
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(
                 builder.Configuration.GetConnectionString("DefaultConnection"),
                 ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
@@ -30,9 +33,11 @@ namespace TodoAPIServer
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
+            // 서버 CORS 사용허가
+            app.UseCors(options => options.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
 
             app.MapControllers();
 

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "TodoList";
+}
+
+<div class="text-center">
+    @*전체 리스트*@
+    <div class="main-content">
+        <h4 class="display-4">TodoList</h4>
+        <ul id="todoItems"/>
+    </div>
+    @*검색 영역*@
+    <div>
+        @*form 태그도 없고 submit 버튼도 없지만 Data 전송가능*@
+        <label for="Id">ID:</label>
+        <input type="text" id="Id"/>
+        <input type="button" value="Search" id="btnSearch"/>
+        <p id="todoItem"></p>
+    </div>
+    @*새 할일 추가 영역*@
+    <div>
+        <label for="Title">Title:</label>
+        <input type="text" id="Title"/>
+        <label for="IsComplete">완료여부:</label>
+        <select id="IsComplete">
+            <option value="1">true</option>
+            <option value="0">false</option>
+        </select>
+        <input type="button" value="Insert" id="btnInsert"/>
+        <p id="result"></p>
+    </div>
+
+
+</div>
