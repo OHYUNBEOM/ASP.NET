@@ -68,14 +68,15 @@
   - RestAPI Server 체크
   - FrontEnd Server 작업
 
-## 개인 포트폴리오 사이트 제작
-- ASP.NET Core MVC
-  - startbootstrap-freelancer-gh-pages 테마 적용
-  - SEO Dream 테마 모션 이벤트 적용
-
-![self_portfolio](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/portfolio.gif?raw=true)
 
 ## 12일차
 - ASP.NET RestAPI
   - RestAPI Server 수정
   - FrontEnd Server 작업 계속
+
+
+## 개인 포트폴리오 사이트 제작
+- ASP.NET Core MVC
+  - startbootstrap-freelancer-gh-pages 테마 적용
+  - SEO Dream 테마 모션 이벤트 적용
+![self_portfolio](https://github.com/OHYUNBEOM/ASP.NET/blob/main/images/portfolio.gif?raw=true)
