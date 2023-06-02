@@ -5525,6 +5525,8 @@ textarea.form-control-lg {
     overflow-y: auto;
   }
 }
+
+
 .tooltip {
   --bs-tooltip-zindex: 1080;
   --bs-tooltip-max-width: 200px;
@@ -8133,6 +8135,11 @@ textarea.form-control-lg {
 .bg-secondary {
   --bs-bg-opacity: 1;
   background-color: slategray !important;
+}
+
+.bg-custom {
+    --bs-bg-opacity: 1;
+    background-color: lightslategrey !important;
 }
 
 .bg-success {
